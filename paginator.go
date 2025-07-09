@@ -5,6 +5,10 @@ import (
 	"strconv"
 )
 
+/*
+Paginate pulls page, limit, and offset values from request params and calculates the page number using the limit and offset if not supplied.
+if strconv.Atoi errors on either limit, offset or page then this will return defaultLimit, 0, 0
+*/
 func Paginate(r *http.Request, defaultLimit int) (limit int, offset int, page int) {
 	q := r.URL.Query()
 
